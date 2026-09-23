@@ -137,6 +137,7 @@ svg{-ms-touch-action:none;touch-action:none}image,text,.jvm-zoomin,.jvm-zoomout{
     --color-success-700: #027a48;
     --color-success-800: #05603a;
     --color-error-50: #fef3f2;
+    --color-error-100: #fee4e2;
     --color-error-200: #fecdca;
     --color-error-300: #fda29b;
     --color-error-400: #f97066;
@@ -145,6 +146,8 @@ svg{-ms-touch-action:none;touch-action:none}image,text,.jvm-zoomin,.jvm-zoomout{
     --color-error-700: #b42318;
     --color-error-800: #912018;
     --color-warning-50: #fffaeb;
+    --color-warning-100: #fef0c7;
+    --color-warning-300: #fec84b;
     --color-warning-400: #fdb022;
     --color-warning-500: #f79009;
     --color-warning-600: #dc6803;
@@ -362,6 +365,9 @@ svg{-ms-touch-action:none;touch-action:none}image,text,.jvm-zoomin,.jvm-zoomout{
 @layer utilities {
   .pointer-events-none {
     pointer-events: none;
+  }
+  .visible {
+    visibility: visible;
   }
   .menu-item-arrow {
     position: absolute;
@@ -677,6 +683,12 @@ svg{-ms-touch-action:none;touch-action:none}image,text,.jvm-zoomin,.jvm-zoomout{
   .ml-0\.5 {
     margin-left: calc(var(--spacing) * 0.5);
   }
+  .ml-1 {
+    margin-left: calc(var(--spacing) * 1);
+  }
+  .ml-2 {
+    margin-left: calc(var(--spacing) * 2);
+  }
   .ml-auto {
     margin-left: auto;
   }
@@ -819,6 +831,9 @@ svg{-ms-touch-action:none;touch-action:none}image,text,.jvm-zoomin,.jvm-zoomout{
   .h-20 {
     height: calc(var(--spacing) * 20);
   }
+  .h-24 {
+    height: calc(var(--spacing) * 24);
+  }
   .h-40 {
     height: calc(var(--spacing) * 40);
   }
@@ -904,6 +919,9 @@ svg{-ms-touch-action:none;touch-action:none}image,text,.jvm-zoomin,.jvm-zoomout{
   }
   .w-20 {
     width: calc(var(--spacing) * 20);
+  }
+  .w-36 {
+    width: calc(var(--spacing) * 36);
   }
   .w-40 {
     width: calc(var(--spacing) * 40);
@@ -1400,6 +1418,10 @@ svg{-ms-touch-action:none;touch-action:none}image,text,.jvm-zoomin,.jvm-zoomout{
     border-left-style: var(--tw-border-style);
     border-left-width: 2px;
   }
+  .border-dashed {
+    --tw-border-style: dashed;
+    border-style: dashed;
+  }
   .border-dashed\! {
     --tw-border-style: dashed;
     border-style: dashed !important;
@@ -1446,6 +1468,9 @@ svg{-ms-touch-action:none;touch-action:none}image,text,.jvm-zoomin,.jvm-zoomout{
   }
   .border-transparent {
     border-color: transparent;
+  }
+  .border-warning-300 {
+    border-color: var(--color-warning-300);
   }
   .border-warning-500 {
     border-color: var(--color-warning-500);
@@ -1745,6 +1770,10 @@ svg{-ms-touch-action:none;touch-action:none}image,text,.jvm-zoomin,.jvm-zoomout{
   }
   .stroke-gray-500 {
     stroke: var(--color-gray-500);
+  }
+  .object-contain {
+    -o-object-fit: contain;
+       object-fit: contain;
   }
   .object-cover {
     -o-object-fit: cover;
@@ -2503,6 +2532,13 @@ svg{-ms-touch-action:none;touch-action:none}image,text,.jvm-zoomin,.jvm-zoomout{
       }
     }
   }
+  .hover\:bg-error-100 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-error-100);
+      }
+    }
+  }
   .hover\:bg-error-500 {
     &:hover {
       @media (hover: hover) {
@@ -2535,6 +2571,34 @@ svg{-ms-touch-action:none;touch-action:none}image,text,.jvm-zoomin,.jvm-zoomout{
     &:hover {
       @media (hover: hover) {
         background-color: var(--color-gray-200);
+      }
+    }
+  }
+  .hover\:bg-success-500 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-success-500);
+      }
+    }
+  }
+  .hover\:bg-warning-100 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-warning-100);
+      }
+    }
+  }
+  .hover\:bg-warning-500 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-warning-500);
+      }
+    }
+  }
+  .hover\:bg-warning-600 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-warning-600);
       }
     }
   }
@@ -3523,6 +3587,11 @@ svg{-ms-touch-action:none;touch-action:none}image,text,.jvm-zoomin,.jvm-zoomout{
   .dark\:bg-transparent {
     &:is(.dark *) {
       background-color: transparent;
+    }
+  }
+  .dark\:bg-warning-500\/10 {
+    &:is(.dark *) {
+      background-color: color-mix(in oklab, var(--color-warning-500) 10%, transparent);
     }
   }
   .dark\:bg-warning-500\/15 {
