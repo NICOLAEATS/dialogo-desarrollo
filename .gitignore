@@ -22,3 +22,7 @@ pdfs/*
 
 # Credenciales locales
 .env
+
+deploy.zip
+deploy_htdocs/
+

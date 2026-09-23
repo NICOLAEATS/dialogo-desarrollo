@@ -6,10 +6,21 @@
 
 session_start();
 
-define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
-define('DB_NAME', getenv('DB_NAME') ?: 'dialogoydesarrollo');
-define('DB_USER', getenv('DB_USER') ?: 'root');
-define('DB_PASS', getenv('DB_PASS') !== false ? getenv('DB_PASS') : '');
+$isProd = isset($_SERVER['HTTP_HOST']) && (
+    strpos($_SERVER['HTTP_HOST'], 'wuaze.com') !== false ||
+    strpos($_SERVER['HTTP_HOST'], 'infinityfree') !== false
+);
+if ($isProd) {
+    define('DB_HOST', 'sql309.infinityfree.com');
+    define('DB_NAME', 'if0_42992639_dialogo');
+    define('DB_USER', 'if0_42992639');
+    define('DB_PASS', 'QG6CHMtdkqgeQZY');
+} else {
+    define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
+    define('DB_NAME', getenv('DB_NAME') ?: 'dialogoydesarrollo');
+    define('DB_USER', getenv('DB_USER') ?: 'root');
+    define('DB_PASS', getenv('DB_PASS') !== false ? getenv('DB_PASS') : '');
+}
 define('APP_NAME', 'Dialogo y Desarrollo');
 define('APP_LABEL', 'Panel de Administracion');
 define('APP_BASE', str_replace('\\', '/', dirname(__DIR__)));
