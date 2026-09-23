@@ -30,3 +30,14 @@ deploy_htdocs/
 ftp_upload.py
 deploy_htdocs/db_info.php
 
+
+analizar_moji.py
+hexcheck.py
+reparar_moji.py
+ftp_upload.py
+database/*.bak
+
+
+bypass_js.py
+verify_fix.py
+
