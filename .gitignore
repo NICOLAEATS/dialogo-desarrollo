@@ -1,0 +1,24 @@
+# Dependencias y temporales
+tailadmin-src/node_modules/
+tailadmin-src/dist/
+tailadmin-src/.vite/
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+
+# Subidas locales (no subir al repo, se gestionan en el hosting)
+front/assets/videos/*
+!front/assets/videos/.gitkeep
+front/pdfs/*
+!front/pdfs/.gitkeep
+admin/assets/videos/*
+pdfs/*
+!pdfs/.gitkeep
+
+# Dumps viejos en UTF-16 (usar database/dialogoydesarrollo.sql que ya esta en UTF-8)
+/dialogoydesarrollo.sql
+/front/dialogoydesarrollo.sql
+
+# Credenciales locales
+.env
