@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // Conexion local (XAMPP) + produccion (InfinityFree).
 // En InfinityFree no hay variables de entorno: se autodetecta por HTTP_HOST.
 $isProd = isset($_SERVER['HTTP_HOST']) && (
@@ -7,7 +7,7 @@ $isProd = isset($_SERVER['HTTP_HOST']) && (
 );
 if ($isProd) {
     define('DB_HOST', 'sql309.infinityfree.com');
-    define('DB_NAME', 'if0_42992639_dialogo');
+    define('DB_NAME', 'if0_42992639_dialogoydesarrollo');
     define('DB_USER', 'if0_42992639');
     define('DB_PASS', 'QG6CHMtdkqgeQZY');
 } else {

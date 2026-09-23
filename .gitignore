@@ -26,3 +26,7 @@ pdfs/*
 deploy.zip
 deploy_htdocs/
 
+
+ftp_upload.py
+deploy_htdocs/db_info.php
+
