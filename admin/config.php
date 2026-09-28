@@ -6,11 +6,18 @@
 
 session_start();
 
+$host = $_SERVER['HTTP_HOST'] ?? '';
+$isUac = strpos($host, '50.31.176.166') !== false;
 $isProd = isset($_SERVER['HTTP_HOST']) && (
     strpos($_SERVER['HTTP_HOST'], 'wuaze.com') !== false ||
     strpos($_SERVER['HTTP_HOST'], 'infinityfree') !== false
 );
-if ($isProd) {
+if ($isUac) {
+    define('DB_HOST', 'localhost');
+    define('DB_NAME', 'plataformas3_dialogo_atayupanqui');
+    define('DB_USER', 'plataformas3_dialogo_atayupanqui');
+    define('DB_PASS', '581560atayupanqui');
+} elseif ($isProd) {
     define('DB_HOST', 'sql309.infinityfree.com');
     define('DB_NAME', 'if0_42992639_dialogoydesarrollo');
     define('DB_USER', 'if0_42992639');
@@ -77,14 +84,19 @@ function app_base_url()
     if ($base === null) {
         $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
         $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
-        $dir = APP_BASE;
-        $root = str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT'] ?? '');
-        if ($root !== '' && strpos($dir, $root) === 0) {
-            $sub = rtrim(substr($dir, strlen($root)), '/');
+        if (strpos($host, '50.31.176.166') !== false) {
+            // Servidor UAC con mod_userdir (~usuario/carpeta)
+            $base = 'http://' . $host . '/~plataformas3/atayupanqui-sanz';
         } else {
-            $sub = '';
+            $dir = APP_BASE;
+            $root = str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT'] ?? '');
+            if ($root !== '' && strpos($dir, $root) === 0) {
+                $sub = rtrim(substr($dir, strlen($root)), '/');
+            } else {
+                $sub = '';
+            }
+            $base = $scheme . '://' . $host . $sub;
         }
-        $base = $scheme . '://' . $host . $sub;
     }
     return $base;
 }

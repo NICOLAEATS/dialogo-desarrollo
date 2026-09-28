@@ -1,11 +1,18 @@
 ﻿<?php
-// Conexion local (XAMPP) + produccion (InfinityFree).
-// En InfinityFree no hay variables de entorno: se autodetecta por HTTP_HOST.
+// Conexion local (XAMPP) + produccion (InfinityFree) + UAC (servidor universidad).
+// Se autodetecta por HTTP_HOST.
+$host = $_SERVER['HTTP_HOST'] ?? '';
+$isUac = strpos($host, '50.31.176.166') !== false;
 $isProd = isset($_SERVER['HTTP_HOST']) && (
     strpos($_SERVER['HTTP_HOST'], 'wuaze.com') !== false ||
     strpos($_SERVER['HTTP_HOST'], 'infinityfree') !== false
 );
-if ($isProd) {
+if ($isUac) {
+    define('DB_HOST', 'localhost');
+    define('DB_NAME', 'plataformas3_dialogo_atayupanqui');
+    define('DB_USER', 'plataformas3_dialogo_atayupanqui');
+    define('DB_PASS', '581560atayupanqui');
+} elseif ($isProd) {
     define('DB_HOST', 'sql309.infinityfree.com');
     define('DB_NAME', 'if0_42992639_dialogoydesarrollo');
     define('DB_USER', 'if0_42992639');
