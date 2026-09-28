@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // Conexion local (XAMPP) + produccion (InfinityFree) + UAC (servidor universidad).
 // Se autodetecta por HTTP_HOST.
 $host = $_SERVER['HTTP_HOST'] ?? '';

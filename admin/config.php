@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // ============================================================
 // CONFIGURACION GLOBAL DEL PANEL ADMIN
 // Base de datos: dialogoydesarrollo
